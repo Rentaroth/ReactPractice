@@ -38,8 +38,14 @@ main {
   background: var(--light-1);
 }
 .collage-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 97%;
   height: 97%;
+  padding: 0 5px;
+  box-sizing: border-box;
   align-self: center;
   justify-self: center;
   border-radius: 20px;

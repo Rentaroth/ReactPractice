@@ -1,0 +1,8 @@
+.main_info--title {
+  margin: 5px 0;
+  font-size: medium;
+  font-weight: bold;
+  font-family: var(--font-2);
+  color: var(--dark-font);
+  text-shadow: 0 0 3px var(--dark-3);
+}

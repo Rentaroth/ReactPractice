@@ -1,22 +1,23 @@
 import React from 'react';
-import { useStorage } from '../Content/hooks/useStorage.js'
+import { useStorage } from '../Content/hooks/useStorage.js';
 
-const context = React.createContext();
+const Context = React.createContext();
 
-function DataProvider(props) {
-  console.log('Desde Provider');
-  const dataState = useStorage('CV');
-  console.log(dataState, 'Provider');
+function CvContext(props) {
+  const { currentInfo } = useStorage('CV');
   const {
-    id
-  } = dataState;
+    education
+  } = currentInfo;
+
   return (
-    <context.Provider value={{
-      id
-    }}>
+    <Context.Provider
+      value={{
+        education,
+      }}
+    >
       {props.children}
-    </context.Provider>
+    </Context.Provider>
   );
 }
 
-export { context, DataProvider };
+export { Context, CvContext };

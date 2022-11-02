@@ -8,6 +8,8 @@
   --light-4: #746253;
   --light-font: #f7f6f2;
   --dark-font: #2e292d;
+  --font-1: Verdana, Geneva, Tahoma, sans-serif;
+  --font-2: Tahoma, Roboto, sans-serif;
 }
 html {
   height: fit-content;

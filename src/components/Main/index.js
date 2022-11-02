@@ -1,7 +1,18 @@
 import React from 'react';
+import { Prompt } from './addOn/prompt';
+import './addOn/gridTransform/grid-area-1.css';
 import './Main.css';
 
-function Main() {
+function Main(props) {
+  const [ areaClass, setAreaClass ] = React.useState('main--area');
+  function areaZoom() {
+    if(!areaClass.includes('main_info--zoom--on')) {
+      setAreaClass('main_area main_info--zoom--on');
+    } else {
+      setAreaClass('main_area main_info--zoom--off');
+    }
+  }
+  console.log(areaClass);
   return (
     <main>
       <div className="main_title">
@@ -14,8 +25,12 @@ function Main() {
           eleifend nec eu ante.
         </p>
       </div>
-      <div className="main--area">
-        <section className="main_info collage-item"></section>
+      <div className={areaClass}>
+        <section onClick={areaZoom} className="main_info collage-item">
+          <Prompt
+            info={props.info}
+          />
+        </section>
         <section className="main_lookingfor collage-item"></section>
         <section className="main_whatioffer collage-item"></section>
         <section className="main_projectspreview collage-item"></section>

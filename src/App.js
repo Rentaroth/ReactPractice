@@ -1,13 +1,13 @@
 import React from 'react';
-import { Fragment } from 'react';
+import { CvContext } from './Context';
 import { Content } from './Content';
 import './App.css';
 
 function App() {
   return (
-    <Fragment>
+    <CvContext>
       <Content />
-    </Fragment>
+    </CvContext>
   );
 }
 

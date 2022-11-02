@@ -1,26 +1,30 @@
 import React from 'react';
 import * as data from '../resume.json';
 
+
+
 function useStorage(cluster) {
-  const parsedData = {
-    ...data,
+  const dataWriter = {
+    ...data
   };
-  const [storedData, setStoredData] = React.useState('');
+  const [ currentInfo, setCurrentInfo ] = React.useState('');
 
   React.useEffect(() => {
-    setTimeout((cluster) => {
-      const Recieved = localStorage.getItem(cluster);
-      if(!Recieved) {
-        localStorage.setItem(cluster, JSON.stringify(parsedData));
-        setStoredData(parsedData);
+    setTimeout(() => {
+      const storedInfo = localStorage.getItem(cluster);
+      const parsedInfo = JSON.parse(storedInfo);
+      if(!storedInfo) {
+        localStorage.setItem(cluster, JSON.stringify(dataWriter));
+        setCurrentInfo(dataWriter.json());
       } else {
-        setStoredData(Recieved);
+        setCurrentInfo(parsedInfo);
       }
     })
-  });
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  
   return {
-    storedData
+    currentInfo,
   };
 }
 
